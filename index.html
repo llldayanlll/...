@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive Website</title>
+    <title>Project Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2em;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #333;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Interactive Greeting</h1>
-    <label for="name">Enter your name: </label>
-    <input type="text" id="name">
-    <button onclick="greet()">Say Hello</button>
-    <p id="greeting"></p>
-
-    <script>
-        function greet() {
-            var name = document.getElementById("name").value;
-            var greeting = "Hello, " + name + "!";
-            document.getElementById("greeting").textContent = greeting;
-        }
-    </script>
+    <div class="header">
+        <h1>Project Balance</h1>
+        <p>Your One-Stop Solution for Project Management</p>
+    </div>
+    <div class="container">
+        <h2>Welcome to Project Balance</h2>
+        <p>Track, manage, and balance your projects with ease.</p>
+        <button class="button">Learn More</button>
+    </div>
 </body>
 </html>
