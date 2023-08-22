@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Website</title>
+</head>
+<body>
+    <h1>Interactive Greeting</h1>
+    <label for="name">Enter your name: </label>
+    <input type="text" id="name">
+    <button onclick="greet()">Say Hello</button>
+    <p id="greeting"></p>
+
+    <script>
+        function greet() {
+            var name = document.getElementById("name").value;
+            var greeting = "Hello, " + name + "!";
+            document.getElementById("greeting").textContent = greeting;
+        }
+    </script>
+</body>
+</html>
