@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Output Data</title>
+</head>
+<body>
+    <h2>Saved Data:</h2>
+    <p id="outputData"></p>
+
+    <script>
+        var savedData = localStorage.getItem("savedData");
+        if (savedData) {
+            document.getElementById("outputData").textContent = savedData;
+        }
+    </script>
+</body>
+</html>
