@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Data</title>
+</head>
+<body>
+    <label for="data">Enter Data:</label>
+    <input type="text" id="data">
+    <button onclick="saveData()">Save Data</button>
+
+    <script>
+        function saveData() {
+            var inputData = document.getElementById("data").value;
+            localStorage.setItem("savedData", inputData);
+            window.location.href = "output.html";
+        }
+    </script>
+</body>
+</html>
