@@ -15,7 +15,11 @@ document.getElementById('commentForm').addEventListener('submit', function(e) {
     })
     .then(response => response.json())
     .then(data => {
-        loadComments();
+        // Clear the comment input field
+        document.getElementById('commentText').value = '';
+        
+        // Display the new comment immediately
+        displayComment(commentText);
     })
     .catch(error => console.error('Error:', error));
 });
@@ -28,16 +32,21 @@ function loadComments() {
         commentsDiv.innerHTML = '';
 
         data.forEach(issue => {
-            const commentDiv = document.createElement('div');
-            commentDiv.classList.add('comment');
-            commentDiv.innerHTML = `
-                <h3>Comment:</h3>
-                <p>${issue.body}</p>
-            `;
-            commentsDiv.appendChild(commentDiv);
+            displayComment(issue.body);
         });
     })
     .catch(error => console.error('Error:', error));
+}
+
+function displayComment(commentText) {
+    const commentsDiv = document.getElementById('comments');
+    const commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment');
+    commentDiv.innerHTML = `
+        <h3>Comment:</h3>
+        <p>${commentText}</p>
+    `;
+    commentsDiv.appendChild(commentDiv);
 }
 
 window.addEventListener('load', loadComments);
