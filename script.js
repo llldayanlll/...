@@ -1,12 +1,11 @@
 document.getElementById('commentForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const commentText = document.getElementById('commentText').value;
-    
-    // Create a new GitHub Issue using the GitHub API
-    fetch('https://api.github.com/repos/yourusername/yourrepo/issues', {
+
+    fetch('https://api.github.com/repos/llldayanlll/.../issues', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer YOUR_ACCESS_TOKEN', // Replace with your access token
+            'Authorization': 'Bearer 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',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -16,20 +15,18 @@ document.getElementById('commentForm').addEventListener('submit', function(e) {
     })
     .then(response => response.json())
     .then(data => {
-        // Reload comments to display the new comment
         loadComments();
     })
     .catch(error => console.error('Error:', error));
 });
 
-// Load comments from GitHub Issues and display them
 function loadComments() {
-    fetch('https://api.github.com/repos/yourusername/yourrepo/issues')
+    fetch('https://api.github.com/repos/llldayanlll/.../issues')
     .then(response => response.json())
     .then(data => {
         const commentsDiv = document.getElementById('comments');
         commentsDiv.innerHTML = '';
-        
+
         data.forEach(issue => {
             const commentDiv = document.createElement('div');
             commentDiv.classList.add('comment');
@@ -43,5 +40,4 @@ function loadComments() {
     .catch(error => console.error('Error:', error));
 }
 
-// Load comments when the page loads
 window.addEventListener('load', loadComments);
